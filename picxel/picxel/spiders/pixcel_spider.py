@@ -12,7 +12,9 @@ class MySpider(CrawlSpider):
         'https://wallpaperscraft.ru/',
     ]
     rules = (
-        Rule(LinkExtractor(allow='/wallpaper/'), callback='parse_item'),
+        Rule(LinkExtractor(allow='/wallpaper/'), follow=True),
+        Rule(LinkExtractor(allow='/download/', restrict_xpaths='//span[@class="wallpaper-table__cell"]/a'),
+             callback='parse_item'),
     )
 
     def parse_item(self, response):
@@ -21,6 +23,6 @@ class MySpider(CrawlSpider):
         item['author'] = response.xpath('//div[@class="author__row"]/text()').get()
         item['license'] = response.xpath('//div[@class="author__row"]/span/text()').get()
         item['source'] = response.xpath('//a[@class="author__link"]/@href').get()
-        item['pic_url'] = response.xpath('//a[@class="gui-button gui-button_full-height"]/@href').get()
-        item['size'] = response.xpath('//a[@class="gui-button gui-button_full-height"]/@text').get()
+        item['pic_url'] = response.xpath('//a[@class="gui-button gui-button_full-height"]/@href').getall()
+        item['size'] = response.xpath('//a[@class="gui-button gui-button_full-height"]/text()').get()
         return item

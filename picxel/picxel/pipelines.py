@@ -9,7 +9,7 @@ import json
 
 class PicxelPipeline(object):
     def open_spider(self, spider):
-        self.file = open('items.json', 'w')
+        self.file = open('items.json', 'w', encoding='utf-8')
 
     def close_spider(self, spider):
         self.file.close()
