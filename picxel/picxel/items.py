@@ -9,6 +9,10 @@ import scrapy
 
 
 class PicxelItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    tags = scrapy.Field()
+    author = scrapy.Field()
+    license = scrapy.Field()
+    source = scrapy.Field()
+    size = scrapy.Field()
+    pic_url = scrapy.Field()
+    pic_result = scrapy.Field()

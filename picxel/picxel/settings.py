@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+#
 # Scrapy settings for picxel project
 #
 # For simplicity, this file contains only settings considered important or
@@ -8,6 +8,9 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+
+FEED_EXPORT_ENCODING = 'utf-8'
+
 
 BOT_NAME = 'picxel'
 
@@ -64,9 +67,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'picxel.pipelines.PicxelPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'picxel.pipelines.PicxelPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
