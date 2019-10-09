@@ -20,6 +20,7 @@ class MySpider(CrawlSpider):
     def parse_item(self, response):
         item = PicxelItem()
         item['tags'] = response.xpath('//div[@class="wallpaper__tags"]/a/text()').getall()
+        item['category'] = response.xpath('//div[@class="wallpaper__tags"]/a/text()').get()
         item['author'] = response.xpath('//div[@class="author__row"]/text()').get()
         item['license'] = response.xpath('//div[@class="author__row"]/span/text()').get()
         item['source'] = response.xpath('//a[@class="author__link"]/@href').get()

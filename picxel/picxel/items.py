@@ -9,6 +9,7 @@ import scrapy
 
 
 class PicxelItem(scrapy.Item):
+    category = scrapy.Field()
     tags = scrapy.Field()
     author = scrapy.Field()
     license = scrapy.Field()

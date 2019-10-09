@@ -67,12 +67,12 @@ DOWNLOAD_DELAY = 1
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'scrapy.pipelines.images.ImagesPipeline': 1,
-    'picxel.pipelines.PicxelPipeline': 300,
+    'picxel.pipelines.MongoPipeline': 300,
     # 'picxel.pipelines.MyImagesPipeline': 300,
 }
 
 MEDIA_ALLOW_REDIRECTS = True
-IMAGES_STORE = 'C:/data'
+IMAGES_STORE = 'D:/data'
 IMAGES_URLS_FIELD = 'pic_url'
 IMAGES_RESULT_FIELD = 'pic_result'
 
@@ -80,9 +80,9 @@ IMAGES_RESULT_FIELD = 'pic_result'
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 # AUTOTHROTTLE_ENABLED = True
 # The initial download delay
-AUTOTHROTTLE_START_DELAY = 5
+# AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
-AUTOTHROTTLE_MAX_DELAY = 60
+# AUTOTHROTTLE_MAX_DELAY = 60
 # The average number of requests Scrapy should be sending in parallel to
 # each remote server
 # AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
